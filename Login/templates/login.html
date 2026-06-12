@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <title>Login | Painel</title>
+</head>
+<body>  
+    <div class="login">
+        <div class="login-background">
+            <h1>Login</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <a href="#" class="forgot-password">Esqueceu a senha? Entre em contato!</a>
+                
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <p> &copy; 2026 Painel. Todos os direitos reservados.</p>
+    </div>
+</body>
+</html>

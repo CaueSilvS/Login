@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+
+.login .login-background{
+    height: 450px;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(187, 0, 0, 0.473);
+    border-radius: 10px;
+    
+}
+
+.login-background form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.login-background form label {
+    color: white;
+    font-size: 15px;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.login-background form input {
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-background form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(187, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.forgot-password {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.login-background form button {
+    width: 250px;
+    height: 40px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.774);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.login-background form button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.login-background form button:active {
+    transform: translateY(0);
+}
+.login-background h1 {
+    color: white;
+    margin-bottom: 40px;
+    margin-right: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Arial', sans-serif;
+    font-size: 50px;
+    letter-spacing: 1px;
+}
+
+.login p {
+    color: white;
+    margin-top: 20px;
+    margin-left: 50px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
