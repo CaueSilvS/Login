@@ -1,0 +1,75 @@
+# ===========================================
+# Python
+# ===========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pycache
+
+# ===========================================
+# Django
+# ===========================================
+# Banco de dados local
+db.sqlite3
+*.sqlite3
+
+# Arquivos de mídia enviados por usuários
+/media/
+
+# Arquivos estáticos coletados (collectstatic)
+/staticfiles/
+
+# Configurações locais com segredos (SECRET_KEY, senhas)
+local_settings.py
+raiz/local_settings.py
+
+# ===========================================
+# Variáveis de ambiente e segredos
+# ===========================================
+.env
+.env.*
+*.env
+!.env.example
+
+# ===========================================
+# Ambiente virtual Python
+# ===========================================
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# ===========================================
+# IDEs e editores
+# ===========================================
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*.swo
+*~
+
+# ===========================================
+# Claude Code (sessão local — não versionar)
+# ===========================================
+.claude/
+
+# ===========================================
+# Sistema operacional
+# ===========================================
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ===========================================
+# Logs e arquivos temporários
+# ===========================================
+*.log
+*.tmp
+*.bak
+*.orig

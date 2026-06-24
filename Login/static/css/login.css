@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(187, 0, 0, 0.473);
+    background-color: rgba(145, 25, 25, 0.85);
     border-radius: 10px;
     
 }
@@ -40,15 +40,22 @@
 .login-background form label {
     color: white;
     font-size: 15px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Calibri', sans-serif;
     margin-bottom: 10px;
     font-weight: 500;
+}
+
+.password-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 .login-background form input {
     width: 250px;
     height: 40px;
     padding: 10px;
+    padding-right: 45px;
     border-radius: 5px;
     border: none;
     font-size: 14px;
@@ -56,9 +63,40 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password svg {
+    width: 20px;
+    height: 20px;
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.toggle-password:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 .login-background form input:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(187, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(199, 124, 72, 0.4);
     transform: translateY(-2px);
 }
 
@@ -82,7 +120,7 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: rgba(0, 0, 0, 0.774);
+    background-color: #C77C48;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -92,7 +130,7 @@
 }
 
 .login-background form button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #a8622d;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
@@ -106,7 +144,7 @@
     margin-right: 50px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Calibri', sans-serif;
     font-size: 50px;
     letter-spacing: 1px;
 }
@@ -114,9 +152,312 @@
 .login p {
     color: white;
     margin-top: 20px;
-    margin-left: 50px;
     text-align: center;
     text-decoration: underline;
     font-size: 14px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* === Modificador para telas com mais campos (cadastro, nova senha) === */
+.login-background.cadastro-box {
+    height: auto;
+    min-height: 520px;
+    padding: 40px 0;
+}
+
+/* === Mensagens de erro de campo === */
+.form-errors p {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 4px;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* === Erros gerais do formulário (credenciais inválidas) === */
+.non-field-errors {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.non-field-errors p {
+    color: #ff6b6b;
+    font-size: 14px;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* === Caixa de mensagem informativa (reset enviado, concluído) === */
+.message-box {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+    font-family: 'Calibri', sans-serif;
+    max-width: 320px;
+    padding: 0 20px;
+}
+
+/* === Link secundário (Cadastre-se, Voltar ao login, etc.) === */
+.auth-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Calibri', sans-serif;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.auth-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* === Responsivo mobile === */
+@media (max-width: 600px) {
+    .login-background {
+        width: min(90vw, 550px);
+        height: auto;
+        padding: 40px 24px;
+    }
+
+    .login-background form input,
+    .login-background form button {
+        width: 100%;
+    }
+
+    .login-background h1 {
+        margin-right: 0;
+        font-size: 36px;
+    }
+}
+
+/* ============================================================
+   Layout de card branco sobre fundo escuro (tela de login)
+   ============================================================ */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d3d3d;
+}
+
+.brand {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+    font-family: 'Calibri', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 40px 48px;
+    width: 420px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.card-title {
+    color: #444444;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Calibri', sans-serif;
+    margin-bottom: 24px;
+}
+
+/* Inputs com ícone à esquerda */
+.login-card .input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.login-card .input-icon {
+    position: absolute;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    color: #999;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"] {
+    width: 100%;
+    height: 42px;
+    padding: 10px 42px 10px 38px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Calibri', sans-serif;
+    color: #333;
+    background: #fafafa;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: none;
+    transform: none;
+}
+
+.login-card input[type="text"]:focus,
+.login-card input[type="email"]:focus,
+.login-card input[type="password"]:focus {
+    outline: none;
+    border-color: #C77C48;
+    box-shadow: 0 0 0 2px rgba(199, 124, 72, 0.2);
+    transform: none;
+    background: #fff;
+}
+
+/* Toggle de senha dentro do card */
+.login-card .toggle-password {
+    right: 10px;
+}
+
+.login-card .toggle-password svg {
+    fill: rgba(0, 0, 0, 0.35);
+}
+
+/* Linha com checkbox + botão Entrar */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-family: 'Calibri', sans-serif;
+    color: #555;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.remember-label input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #C77C48;
+    cursor: pointer;
+}
+
+/* Botão Entrar dentro do card */
+.login-card button[type="submit"] {
+    width: auto;
+    height: 36px;
+    padding: 0 20px;
+    margin-top: 0;
+    border-radius: 4px;
+    border: none;
+    background-color: #C77C48;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Calibri', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: none;
+    letter-spacing: 0.3px;
+}
+
+.login-card button[type="submit"]:hover {
+    background-color: #a8622d;
+    transform: none;
+    box-shadow: none;
+}
+
+.login-card button[type="submit"]:active {
+    transform: none;
+}
+
+/* Linha só com botão (sem checkbox) — cadastro */
+.submit-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+/* Links abaixo do formulário */
+.card-links {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-link {
+    font-size: 13px;
+    font-family: 'Calibri', sans-serif;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.card-link:hover {
+    color: #911919;
+    text-decoration: underline;
+}
+
+/* Texto descritivo abaixo do título */
+.card-description {
+    font-size: 13px;
+    font-family: 'Calibri', sans-serif;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Mensagem informativa (páginas sem formulário) */
+.card-message {
+    margin-bottom: 8px;
+}
+
+.card-message p {
+    font-size: 14px;
+    font-family: 'Calibri', sans-serif;
+    color: #444;
+    line-height: 1.6;
+}
+
+.card-message-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Erros dentro do card (fundo branco) */
+.login-card .non-field-errors p {
+    color: #911919;
+    font-size: 13px;
+    font-family: 'Calibri', sans-serif;
+    margin-bottom: 12px;
+}
+
+/* Rodapé abaixo do card */
+.page-footer {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 12px;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* Responsivo — card */
+@media (max-width: 500px) {
+    .login-card {
+        width: min(92vw, 420px);
+        padding: 32px 24px;
+    }
+
+    .brand {
+        font-size: 32px;
+    }
 }

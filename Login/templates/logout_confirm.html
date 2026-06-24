@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Sair | Painel{% endblock %}
+
+{% block body %}
+<div class="login">
+    <div class="login-background">
+        <h1>Sair</h1>
+        <div class="message-box">
+            <p>Tem certeza que deseja sair?</p>
+        </div>
+        <form method="post" style="margin-top: 24px;">
+            {% csrf_token %}
+            <button type="submit">Confirmar saída</button>
+        </form>
+        <a href="{% url 'login' %}" class="auth-link">Cancelar</a>
+    </div>
+    <p>&copy; 2026 Painel. Todos os direitos reservados.</p>
+</div>
+{% endblock %}
